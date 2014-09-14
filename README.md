@@ -101,3 +101,7 @@ and for the additional functionality,
 Result: 0x22, 0x33, 0x44, 0xFF, 0x00, 0x00, 0x00, 0x02
 ```
 The source code above was run with these cases and several other "fringe" cases (operations that either just exceed the maximum 255 or minimum 0, or are just inside this limit).
+##Conclusion
+The above source code programes the MSP430 to perform vary simple calculator functions. However, while the code may have been simple several instruction types were used including 2 operand instructions, emulated instructions, and conditional jumps. Should this lab be performed again, it would be useful to add a multiplication function, or extend the range beyond 0 to 255. Multiplication could perhaps be done by adding a loop that adds a number n to itself n times, and the range could extend by making all the addressing modes word oriented.
+####Documentation
+I referenced the Dr. Coulston handouts from class in order to find how to put values in ROM, and read those values from ROM. I also referenced the MSP430 family user's guide to find explainations on the instruction set.
