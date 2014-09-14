@@ -28,40 +28,19 @@ start	mov.b @R5+, R7
 	jz mult
 
 addition
-	add R8, R6;
-	cmp #255, R6;checks if value exceeds 255
-	jhs twofityfiveflag
-
-addflag
+	add R8, R6
 	mov.b R6, 0(R9); stores in memory
 	inc.w R9; moves R9 to next available RAM memory location
-	;add #0x200, R9
 	inc.w R5
 	jmp start
 
 subtraction
-	cmp R6, R8
-	jc subsetzero
 	sub R8, R6
-subflag
 	mov.b R6, 0(R9)
 	inc.w R9
 	inc.w R5
 	jmp start
 
-mult
-	mov.b R6, R10
-	mov.b R6, R11
-multLoop
-	add R10, R6
-	dec.w R11
-	jz multLoopEnd
-	jmp multLoop
-multLoopEnd
-	mov.b R6, 0(R9)
-	inc.w R9
-	inc.w R5
-	jmp start
 clear
 	mov.b #0x00, 0(R9)
 	inc.w R9
@@ -70,12 +49,3 @@ clear
 	jmp start
 
 end jmp end
-
-twofityfiveflag
-	mov.b #255, R6
-	jmp addflag
-
-subsetzero
-	mov.b #0, R6
-	jmp subflag
-	```
